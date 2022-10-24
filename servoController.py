@@ -12,8 +12,12 @@ import numpy as np
 from xbox360controller import Xbox360Controller
 
 
+def _map(x, in_min, in_max, out_min, out_max):
+    return int((x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min)
+
 def on_axis_moved(axis):
     desired_angle = (axis.x+1)/2*180
+    desired_angle = _map(desired_angle,0,180,55,125)
     kit.servo[0].angle = desired_angle
     print(desired_angle)
     print('Axis {0} moved to {1} {2}'.format(axis.name, axis.x, axis.y))
