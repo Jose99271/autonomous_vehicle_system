@@ -1,8 +1,3 @@
-# SDA = pin.SDA_1
-# SCL = pin.SCL_1
-# SDA_1 = pin.SDA
-# SCL_1 = pin.SCL
-
 from adafruit_servokit import ServoKit
 import board
 import busio
@@ -19,8 +14,6 @@ def on_axis_moved(axis):
     desired_angle = (axis.x+1)/2*180
     desired_angle = _map(desired_angle,0,180,55,125)
     kit.servo[0].angle = desired_angle
-    print(desired_angle)
-    print('Axis {0} moved to {1} {2}'.format(axis.name, axis.x, axis.y))
 
 
 # On the Jetson Nano
