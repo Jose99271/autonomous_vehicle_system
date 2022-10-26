@@ -15,13 +15,15 @@ from xbox360controller import Xbox360Controller
 def _map(x, in_min, in_max, out_min, out_max):
     return int((x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min)
 
-def on_axis_moved(axis):
+def on_axis_moved(self, axis):
     desired_angle = (axis.x+1)/2*180
     desired_angle = _map(desired_angle,0,180,55,125)
     kit.servo[0].angle = desired_angle
     print(desired_angle)
     print('Axis {0} moved to {1} {2}'.format(axis.name, axis.x, axis.y))
 
+        
+              
 
 # On the Jetson Nano
 # Bus 0 (pins 28,27) is board SCL_1, SDA_1 in the jetson board definition file
@@ -42,6 +44,5 @@ try:
             signal.pause()
 except KeyboardInterrupt:
     pass
-              
-               
-                    
+        
+            
