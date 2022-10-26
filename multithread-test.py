@@ -37,9 +37,8 @@ import gpsMultithread as gpsThread
 #camara
 def sensor2():
     #lock.acquire()
-    cap = cv2.VideoCapture("/dev/video2") # check this 
-    while True: 
-        print("camera")
+    cap = cv2.VideoCapture("/dev/video1") # check this 
+    while True:     
         cameraThread.video_cap(cap)
     
     #lock.release()
@@ -64,6 +63,7 @@ def main():
     t2.start()  
     t3.start()
 
+    print("Active Threads: {}".format(threading.active_count()))
     # wait until threads finish their job
     #t1.join()
     t2.join()

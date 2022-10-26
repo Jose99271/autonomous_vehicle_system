@@ -47,5 +47,5 @@ def run_gps():
         #print("gps")
         print(lat, lon, alt)
 
-while True:
-    run_gps()
+#while True:
+    #run_gps()
