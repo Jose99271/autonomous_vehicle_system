@@ -16,6 +16,7 @@ def on_axis_moved(axis):
     kit.servo[0].angle = desired_angle
 
 
+"""
 # On the Jetson Nano
 # Bus 0 (pins 28,27) is board SCL_1, SDA_1 in the jetson board definition file
 # Bus 1 (pins 5, 3) is board SCL, SDA in the jetson definition file
@@ -28,13 +29,14 @@ kit = ServoKit(channels=16)
 print("Done initializing")
 time.sleep(0.5)
 
-try:
-    with Xbox360Controller(0, axis_threshold=0.05) as controller:
-            controller.axis_l.when_moved = on_axis_moved
-    
-            signal.pause()
-except KeyboardInterrupt:
-    pass
-              
+while True:
+    try:
+        with Xbox360Controller(0, axis_threshold=0.05) as controller:
+                controller.axis_l.when_moved = on_axis_moved
+        
+                signal.pause()
+    except KeyboardInterrupt:
+        pass
+ """           
                
                     
